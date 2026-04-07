@@ -14,6 +14,7 @@ class HelloWorld(object):
     
     @cherrypy.expose
     @cherrypy.tools.json_out()
+    
     def get_restaurant_menu(self):
         return {
             "menu": [
