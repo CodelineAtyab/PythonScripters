@@ -68,18 +68,13 @@ if __name__ == "__main__":
 
     # Save results to an XML file using xmltodict
     try:
-        xml_string = xmltodict.unparse(result_dict, pretty=True)
+        xml_string = xmltodict.unparse({"scan_result": result_dict}, pretty=True)
 
         # 3. Write the XML string to a file.
-        file_path = './raw_ping_reports/scan_results.xml'
-        with open(file_path, 'w') as xml_file:
+        with open('./raw_ping_reports/scan_results.xml', 'w') as xml_file:
             xml_file.write(xml_string)
         
-        print(f"Dictionary successfully written to {file_path}")
-        # Optional: print the XML to the console
-        # print("\n--- Generated XML ---")
-        # print(xml_string)
-
+        print(f"Dictionary successfully written to './raw_ping_reports/scan_results.xml'")
     except Exception as e:
         print(f"An error occurred: {e}")
     
